@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>My page</title>
+        <title>ClauieReads-BookRecoForms</title>
     </head>
     <body>
         <h2>Book Recommendations</h2>
@@ -13,14 +13,27 @@
             <input type="radio" id="Fiction" name="genre" value="Fiction">
             <label for="Fiction">Fiction</label><br/>
             <input type="radio" id="Self-Help" name="genre" value="Self-Help">
-            <label for="Self-Help">Self-Helo</label><br/>
-            <input type="radio" id="Others" name="genre" value="Others">
-            <label for="Others">Others</label><br/>
+            <label for="Self-Help"><Self-Help></Self-Help></label><br/>
+            <div class="others-container">
+                <input type="radio" id="othersRadio" name="genre" value="Others">
+                <label for="othersRadio">Others</label>
+                <input type="text" id="otherGenreInput" name="otherGenre"
+                pattern="[A-Za-z]+" title="Enter a genre" placeholder="Enter genre">
+            </div>
+            <br/><br/>
+            <label for="datemin">Enter start date:</label>
+            <input type="date" id="datemin" name="datemin" min="datemin"><br><br>
+            <label for="datemax">Enter end date:</label>
+            <input type="date" id="datemax" name="datemax" max="datemax"><br><br>
             <br/>
             Name of the Book: <input type="text" id="nameofthebook" name="nameofthebook"/>
             <br/>
             Author of the Book: <input type="text" id="authorofthebook" name="authorofthebook"/>
-            <br/>
+            <br/><br/>
+            <input type="checkbox" id="question1" name="question1" value="question1">
+            <label for="question1"> I have a physical copy.</label><br>
+            <input type="checkbox" id="question2" name="question2" value="question2">
+            <label for="question2"> I have a electronic copy.</label><br>
             <br/>
             Rating:
             <select id="rating" name="rating">
@@ -30,8 +43,8 @@
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-            <br/>
-            <br/>
+            <br/><br/>
+            <input type="hidden" name="timestamp" value="2025-08-28 11:21">
             <input type="Submit" value="Submit"/>
         </form>
     </body>
