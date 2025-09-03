@@ -3,7 +3,27 @@
     <head>
         <title>ClauieReads-BookRecoForms</title>
     </head>
-    <body>
+    <!--changing color for bonus with help!-->
+        <head>
+            <title>Color Change Challenge</title>
+            <script>
+                function getRandomColor() {
+                // Get a random hex color
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+                }
+                function changeBackgroundColor() {
+                document.body.style.backgroundColor = getRandomColor();
+                }
+            </script>
+        </head>
+        <button onclick="changeBackgroundColor()">Change Background Color!</button>
+
+    <br>
         <h2>Book Recommendations</h2>
         <form>
             <input type="radio" id="Thriller" name="genre" value="Thriller">
@@ -13,11 +33,8 @@
             <input type="radio" id="Fiction" name="genre" value="Fiction">
             <label for="Fiction">Fiction</label><br/>
             <input type="radio" id="Self-Help" name="genre" value="Self-Help">
-<<<<<<< HEAD
             <label for="Self-Help">Self-Help</label><br/>
-=======
-            <label for="Self-Help"><Self-Help></Self-Help></label><br/>
->>>>>>> b2cb93bfe0f69ce033cca3344ae80bbc7a73bc7c
+            <label for="Self-Help"><Self-Help></Self-Help></label>
             <div class="others-container">
                 <input type="radio" id="othersRadio" name="genre" value="Others">
                 <label for="othersRadio">Others</label>
@@ -48,8 +65,94 @@
                 <option value="5">5</option>
             </select>
             <br/><br/>
+            <!--used for Click Me button-->
+            <input type="button" onclick="alert('You Clicked!')" value="Click Me!">
+            <br/><br/>
             <input type="hidden" name="timestamp" value="2025-08-28 11:21">
             <input type="Submit" value="Submit"/>
         </form>
+        <!--used for event handler-->
+        <head>
+            <script>
+                function changeParagraphText(){
+                    document.getElementById('myParagraph').innerHTML="changed!";
+                }
+            </script>
+        </head>
+        <p id="myParagraph">This is the original paragraph.</p>
+            <button onclick="changeParagraphText()">Click to Change</button>
+        <!--used for toggle visibility setting-->
+        <meta name="Surprise"
+        content="width=device-width, initial-scale=1">
+        <style>
+            #forYou {
+                width: 100%;
+                padding: 50px 0;
+                text-align: center;
+                background-color: lightpink;
+                margin-top: 20px;
+            }
+        </style>
+        <p> Click the "Surprise" button</p>
+        <button onclick="mySurprise()">Surprise</button>"
+        <div id="forYou">have a great day!</div>"
+        <script>
+            function mySurprise(){
+                var x = document.getElementById("forYou");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                }
+                else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
+        <!--used for changing the image source-->
+        <br/><br/>
+        <img id="myImage" src="image1.jpg"
+        width="107" height="98">
+        <p> click the button to change the image</p>
+        <button onclick="imageFunction()">Try It</button>
+
+        <script>
+            function imageFunction() {
+                document.getElementById("myImage").src="image2.jpg";
+            }
+        </script>
+    <br/><br/>
+
+    <head>
+        <script>
+            function validateRequiredField(elem, messageId) {
+           var messageElem = document.getElementById(messageId);
+           if (elem.value.trim() === "") {
+               messageElem.style.display = "inline";
+           } else {
+               messageElem.style.display = "none";
+           }
+       }
+        </script>
+    </head>
+        <form>
+             Name of the Book:
+            <input type="text" id="nameofthebook" name="nameofthebook"
+            onblur="validateRequiredField(this, 'nameRequiredMsg')" required/>
+            <span id="nameRequiredMsg" style="color:red; display:none;">This field is required</span>
+            <br/>
+            <!-- Other fields here -->
+            <input type="submit" value="Submit"/>
+        </form>
+        <br/><br/>
+        <head>
+            <script>
+                function myFunction(elem){
+                    elem.innerHTML="hello world!";
+                }
+            </script>
+        </head>
+        <body>
+            <button onclick="myFunction(this);">Press Here</button>
+        </body>
+        <br/><br/>
     </body>
 </html>
