@@ -5,14 +5,29 @@
     </head>
     <body>
         <h1> Digital Library </h1>
-        <h2> Books I've Read:</h2>
+
+        <h3> Currently Reading:</h3>
+        <p id="demo"> Click the button to see what book I'm currently reading.</p>
+        <button onclick="showBook()">Show Book</button>
+        <script>
+            async function showBook() {
+                let myObject = await
+                fetch("current-book.txt");
+                let myText = await
+                myObject.text();
+
+                document.getElementById("demo").innerHTML = "📖 I'm currently reading: Hidden Pictures by Jason Rekulak " + myText;
+            }
+        </script>
+        
+        <h3> Books I've Read:</h3>
         <div> Top3 </div>
         <ul> <a href="book1.html">Le Passager - Patrick Senecal</a></ul> 
         <ul> <a href="book2.html">The Only One Left - Riley Sager</a></ul>
         <ul> <a href="book3.html">The Whisper Man - Alex North</a></ul>
 
         <div> Others </div>
-        <h2> Book Recommendations</h2>
+        <h3> Book Recommendations</h3>
         <a href="bookreco.html"> Click Here</a>
     </body>
 </html>
