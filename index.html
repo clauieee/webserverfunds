@@ -7,7 +7,7 @@
         <h1> Digital Library </h1>
 
         <h3> Currently Reading:</h3>
-        <p id="demo"> Click the button to see what book I'm currently reading.</p>
+        <p id="demo"></p>
         <button onclick="showBook()">Show Book</button>
         <script>
             async function showBook() {
@@ -15,11 +15,10 @@
                 fetch("current-book.txt");
                 let myText = await
                 myObject.text();
-
-                document.getElementById("demo").innerHTML = "📖 I'm currently reading: Hidden Pictures by Jason Rekulak " + myText;
+                document.getElementById("demo").innerHTML = "I am currently reading:" + myText;
             }
         </script>
-        
+
         <h3> Books I've Read:</h3>
         <div> Top3 </div>
         <ul> <a href="book1.html">Le Passager - Patrick Senecal</a></ul> 
