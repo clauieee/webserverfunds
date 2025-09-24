@@ -4,6 +4,11 @@
         <title>ClauieReads</title>
     </head>
     <body>
-        <p><?= var_dump($_SERVER) ?></p>
+        <h1>PHP Dump!</h1>
+        <p>
+            <?php
+                echo "$_SERVER['HTTP_USER_AGENT']"; 
+            ?>
+        </p>
     </body>
 </html>
