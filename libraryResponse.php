@@ -4,7 +4,7 @@
         <title>Library Response</title>
     </head>
     <body>
-        <h2>Library Search Results</h2>
+        <h2>Library Form Results</h2>
         <p>GET:
             <?php var_dump($_GET); ?>
         </p>
