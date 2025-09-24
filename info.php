@@ -7,7 +7,7 @@
         <h1>PHP Dump!</h1>
         <p>
             <?php
-                echo "$_SERVER['HTTP_USER_AGENT']"; 
+                echo $_SERVER['HTTP_USER_AGENT']; 
             ?>
         </p>
     </body>
