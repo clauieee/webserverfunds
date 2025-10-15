@@ -11,7 +11,7 @@
             $conn = mysqli_connect($server, $username, $password, $database);
             if (!$conn)
                 die("Connection Failed: {mysqli_connect_error()}");
-
+            
             //Retrieve Form Data
             $title = $_POST['title'];
             $author = $_POST['author'];
@@ -20,6 +20,7 @@
             //Insert Book Data into Table (books)
             $sql = "INSERT INTO books (title, author, genre) 
                     VALUES ('$title', '$author', '$genre')";
+            $result = mysqli_query($conn, $sql);
         ?>
     </head>
 
