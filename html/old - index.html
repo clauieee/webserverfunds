@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<br>
+    <head>
+        <title>ClauieReads</title>
+    </head>
+    <br>
+        <h1> Digital Library </h1>
+
+        <h3> Currently Reading:</h3>
+        <p id="demo"></p>
+        <button onclick="showBook()">Show Book</button>
+        <script>
+            async function showBook() {
+                let myObject = await
+                fetch("current-book.txt");
+                let myText = await
+                myObject.text();
+                document.getElementById("demo").innerHTML = "I am currently reading:" + myText;
+            }
+        </script>
+
+        <h3> Books I've Read:</h3>
+        <div> Top3 </div>
+        <ul> <a href="book1.html">Le Passager - Patrick Senecal</a></ul> 
+        <ul> <a href="book2.html">The Only One Left - Riley Sager</a></ul>
+        <ul> <a href="book3.html">The Whisper Man - Alex North</a></ul>
+
+        <div> Others </div>
+        <h3> Book Recommendations</h3>
+        <a href="bookreco.html"> Click Here</a>
+        <h3> Book Form</h3>
+        <a href="libraryForm.html"> Click Here</a><br></br>
+        <a href="addBook.html"> Add a New Book</a>; <br></br>
+        <a href="searchBook.html"> Search for A Book</a>;<br></br>
+    </body>
+</html>

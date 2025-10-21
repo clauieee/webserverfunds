@@ -1,36 +1,70 @@
 <!DOCTYPE html>
-<br>
-    <head>
-        <title>ClauieReads</title>
-    </head>
-    <br>
-        <h1> Digital Library </h1>
+<html lang="en">
+<head>
+    <title>Volumes | A Reading Collection by Clauie</title>
+    <style>
+        body {
+            font-family: "Georgia", serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
 
-        <h3> Currently Reading:</h3>
-        <p id="demo"></p>
-        <button onclick="showBook()">Show Book</button>
-        <script>
-            async function showBook() {
-                let myObject = await
-                fetch("current-book.txt");
-                let myText = await
-                myObject.text();
-                document.getElementById("demo").innerHTML = "I am currently reading:" + myText;
-            }
-        </script>
+        h1 {
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            margin: 0;
+        }
 
-        <h3> Books I've Read:</h3>
-        <div> Top3 </div>
-        <ul> <a href="book1.html">Le Passager - Patrick Senecal</a></ul> 
-        <ul> <a href="book2.html">The Only One Left - Riley Sager</a></ul>
-        <ul> <a href="book3.html">The Whisper Man - Alex North</a></ul>
+        h2 {
+            font-size: 1rem;
+            font-weight: normal;
+            color: #666;
+            margin-top: 0.5rem;
+        }
 
-        <div> Others </div>
-        <h3> Book Recommendations</h3>
-        <a href="bookreco.html"> Click Here</a>
-        <h3> Book Form</h3>
-        <a href="libraryForm.html"> Click Here</a><br></br>
-        <a href="addBook.html"> Add a New Book</a>; <br></br>
-        <a href="searchBook.html"> Search for A Book</a>;<br></br>
-    </body>
+        nav {
+            margin-top: 3rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 15px;
+            font-size: 1rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            border-bottom: 1px solid #333;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>Volumes</h1>
+        <h2>A Reading Collection by Clauie</h2>
+        <nav>
+            <a href="books.html">Books</a>
+            <a href="recommend.html">Recommend a Book</a>
+        </nav>
+    </main>
+
+    <footer>
+        © 2025 Volumes by Clauie
+    </footer>
+</body>
 </html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recommend a Book | Volumes by Clauie</title>
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      background-color: #f8f8f8;
+      color: #333;
+      margin: 0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header {
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: normal;
+      color: #666;
+      margin-top: 0;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: left;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: Georgia, serif;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    a.back {
+      display: inline-block;
+      margin-top: 30px;
+      text-decoration: none;
+      color: #333;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s;
+    }
+
+    a.back:hover {
+      border-bottom: 1px solid #333;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.8rem;
+      color: #888;
+      text-align: center;
+    }
+
+    /* Custom genre input hidden by default */
+    #customGenreContainer {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Recommend a Book</h1>
+    <h2>Share your favorite reads with me!</h2>
+  </header>
+
+  <form action="submitRecommendation.php" method="post">
+    <label for="title">Book Title</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="author">Author</label>
+    <input type="text" id="author" name="author" required>
+
+    <label for="genre">Genre</label>
+    <select id="genre" name="genre" required onchange="toggleCustomGenre()">
+      <option value="" disabled selected>Select a genre</option>
+      <option value="romance">Romance</option>
+      <option value="thriller">Thriller</option>
+      <option value="self-help">Self-Help</option>
+      <option value="finance">Finance</option>
+      <option value="science-fiction">Science Fiction</option>
+      <option value="fantasy">Fantasy</option>
+      <option value="non-fiction">Non-Fiction</option>
+      <option value="other">Other</option>
+    </select>
+
+    <div id="customGenreContainer">
+      <label for="customGenre">Specify Genre</label>
+      <input type="text" id="customGenre" name="customGenre">
+    </div>
+
+    <label for="reason">Why do you recommend it?</label>
+    <textarea id="reason" name="reason" rows="5" placeholder="Write a short summary or review..." required></textarea>
+
+    <label for="rating">Rating (1–5)</label>
+    <input type="number" id="rating" name="rating" min="1" max="5" required>
+
+    <button type="submit">Submit Recommendation</button>
+  </form>
+
+  <a href="index.html" class="back">← Back to Home</a>
+
+  <footer>
+    © 2025 Volumes by Clauie
+  </footer>
+
+  <script>
+    // Show custom genre field if 'Other' is selected
+    function toggleCustomGenre() {
+      const genreSelect = document.getElementById('genre');
+      const customContainer = document.getElementById('customGenreContainer');
+      const customInput = document.getElementById('customGenre');
+
+      if (genreSelect.value === 'other') {
+        customContainer.style.display = 'block';
+        customInput.setAttribute('required', 'required');
+      } else {
+        customContainer.style.display = 'none';
+        customInput.removeAttribute('required');
+      }
+    }
+  </script>
+</body>
+</html>

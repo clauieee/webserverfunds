@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Books | Volumes by Clauie</title>
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      background-color: #f8f8f8;
+      color: #333;
+      margin: 0;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header {
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1rem;
+      font-weight: normal;
+      color: #666;
+      margin-top: 0;
+    }
+
+    .bookshelf {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .book {
+      position: relative;
+      width: 140px;
+      cursor: pointer;
+    }
+
+    .book img {
+      width: 140px;            /* fixed width */
+      height: 210px;           /* fixed height */
+      object-fit: cover;       /* scale/crop to fit without distortion */
+      border-radius: 6px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .book:hover img {
+      transform: translateY(-5px);
+    }
+
+    /* Hover overlay */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.75);
+      color: #fff;
+      opacity: 0;
+      border-radius: 6px;
+      padding: 10px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: opacity 0.3s ease;
+    }
+
+    .book:hover .overlay {
+      opacity: 1;
+    }
+
+    a.back {
+      display: inline-block;
+      margin-top: 40px;
+      text-decoration: none;
+      color: #333;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s;
+    }
+
+    a.back:hover {
+      border-bottom: 1px solid #333;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Books I've Read</h1>
+    <h2>Volumes: A Reading Collection by Clauie</h2>
+  </header>
+    <!-- Book 1 -->
+  <section class="bookshelf">
+    <div class="book">
+      <img src="book images/LePassager - Patrick Senecal.jpg" alt="Le Passager by Patrick Senecal">
+      <div class="overlay">
+        <strong>Le Passager - Patrick Senecal</strong><br>
+        Rating: ★★★★☆<br>
+        Summary: A gripping psychological thriller that kept me on edge!
+      </div>
+    </div>
+    <!-- Book 2 -->
+    <div class="book">
+      <img src="book images/The Whisper Man - Alex North.jpg" alt="The Whisper Man">
+      <div class="overlay">
+        <strong>The Whisper Man - Alex North </strong><br>
+        Rating: ★★★★★<br>
+        Summary: A widower, Tom, moves his young son, Jake, to the town of Featherbank for a fresh start.
+        The town is still haunted by a 20y.o serial killer case known as "The Whisper Man". 
+      </div>
+    </div>
+    <!-- Book 3 -->
+    <div class="book">
+      <img src="book images/TheOnlyOneLeft - Riley Sager.jpg" alt="The Only One left">
+      <div class="overlay">
+        <strong>The Only One Left - Riley Sager </strong><br>
+        Rating: ★★★★☆<br>
+        Summary: A caregiver named Kit who is assigned to look after Lenora Hope, a 
+        woman accused of murdering her family in 1929
+      </div>
+    </div>
+    
+    <!-- Book 4 -->
+    <div class="book">
+      <img src="book images/Verity - Colleen Hoover.jpg" alt="Verity">
+      <div class="overlay">
+        <strong>Verity - Colleen Hoover</strong><br>
+        Rating: ★★★★☆<br>
+        Summary: A psychological thriller about struggling write Lowen Ashleigh, who is hired
+        to ghostwrite the rest of bestselling author Verity Crawford's book series after Verity
+        is incapacitated in an accident.
+      </div>
+    </div>
+
+    <!-- Book 5 -->
+    <div class="book">
+      <img src="book images/Beach Read - Emily Henry.jpg" alt="Beach Read">
+      <div class="overlay">
+        <strong>Beach Read - Emily Henry </strong><br>
+        Rating: ★★★★☆<br>
+        Summary: Romance about two rival writers, January and Augustus, who strike a deal to 
+        overcome writer's block by writing in each other's genres. 
+      </div>
+    </div>
+
+    <!-- Book 6 -->
+    <div class="book">
+      <img src="book images/People We Meet On Vacation - Emily Henry.jpg" alt="People We Meet on Vacation">
+      <div class="overlay">
+        <strong>People We Meet on Vacation - Emily Henry </strong><br>
+        Rating: ★★★★☆<br>
+        Summary: Two bestfriends, the spontaneous travel writer Poppy and the steady, home-loving teacher Alex, whose
+        friendship is strained after a disastrous vacation to Croatia. 
+      </div>
+    </div>
+
+    <!-- Book 7 -->
+    <div class="book">
+      <img src="book images/It Happened One Summer - Tessa Bailey.jpg" alt="It Happened One Summer">
+      <div class="overlay">
+        <strong>It Happened One Summer - Tessa Bailey </strong><br>
+        Rating: ★★★★☆<br>
+        Summary: Romance novel about a wealthy LA socialite, Piper, who is sent to a small Washington
+        fishing town to run her late father's bar as a lesson in responsibility.
+      </div>
+    </div>
+
+    <!-- Book 8 -->
+    <div class="book">
+      <img src="book images/The Seven Husbands of Evelyn Hugo - Taylor Jenkins.jpg" alt="The Seven Husbands of Evelyn Hugo">
+      <div class="overlay">
+        <strong>The Seven Husbands of Evelyn Hugo - Taylor Jenkins</strong><br>
+        Rating: ★★★★☆<br>
+        Summary: Reclusive Hollywood legend, Evenlyn, who chooses an unknown reporter, Monique, to write her life story. 
+      </div>
+    </div>
+
+    <!-- Book 9 -->
+    <div class="book">
+      <img src="book images/The Woman in The Window - A.J Finn.jpg" alt="The Woman in The Window">
+      <div class="overlay">
+        <strong>The Woman in The Window - A.J Finn</strong><br>
+        Rating: ★★★★☆<br>
+        Summary: Follows the life of Dr. Anna Fox who suffers from agoraphobia and lives a Reclusive
+        life at her large home in New York City, where she one day witnesses a murder across the street. 
+      </div>
+    </div>
+
+    <!-- Book 10 -->
+    <div class="book">
+      <img src="book images/The Night Swim - Megan Goldin.jpg" alt="The Night Swim">
+      <div class="overlay">
+        <strong>The Night Swim - Megan Goldin</strong><br>
+        Rating: ★★★★☆<br>
+        Summary: Triller about Rachel, who becomes entangled in a decades-old mystery while 
+        investigating a new case in a small town.
+      </div>
+    </div>
+
+    <!-- Book 11 -->
+    <div class="book">
+      <img src="book images/None of This is True - Lisa Jewell.jpg" alt="None of This is True">
+      <div class="overlay">
+        <strong>None of This is True - Lisa Jewell</strong><br>
+        Rating: ★★★★☆<br>
+        Summary: psychological thriller about a popular podcaster, Alix, who meets Josie on their 45th birthday. 
+        As Alix delves deeper, she discovers dark and dangerous secrets. 
+      </div>
+    </div>
+
+    <!-- Book 12 -->
+    <div class="book">
+      <img src="book images/Brother - Ania Ahlborn.jpg" alt="Brother">
+      <div class="overlay">
+        <strong>Brother - Ania Ahlborn</strong><br>
+        Rating: ★★★★☆<br>
+        Summary:  19-year-old Michael Morrow, who wants to escape his family's disturbing traditions in 
+        the Appalachian Mountains, where they engage in horrific activities.
+      </div>
+    </div>
+
+  </section>
+
+  <a href="index.html" class="back">← Back to Home</a>
+
+  <footer>
+    © 2025 Volumes by Clauie
+  </footer>
+</body>
+</html>
