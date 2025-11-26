@@ -6,8 +6,8 @@
     <body>
         <h2>LED Control Results</h2>
             <?php
-                $binary = "home/clauie/raspberry-pi-bme280/bme280";
-                $output = shell_exec("$binary 2>&1");
+        
+                $output = shell_exec("./bme280");
                 echo $output;
             ?>
         <br>
