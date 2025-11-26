@@ -1,7 +1,6 @@
 <?php
-    header("Content-Type: application/json");
     // Run the BME280 binary
-    $output = trim(shell_exec("/home/pi/bme/bme280"));
+    $output = trim(shell_exec("/bme280"));
     // Split the output by spaces
     $parts = explode(" ", $output);
     // Return JSON
