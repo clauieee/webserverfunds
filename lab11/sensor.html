@@ -16,9 +16,9 @@
                     document.getElementById("output").textContent = "Error reading sensor!";
                 } else {
                     document.getElementById("output").innerHTML =
-                        "Temperature: " + data.temperature + " °C\n" +
-                        "Pressure: " + data.pressure + " hPa\n" +
-                        "Altitude: " + data.altitude + " m";
+                        "Temperature: " + data.temperature +  +
+                        "Pressure: " + data.pressure +  +
+                        "Altitude: " + data.altitude  ;
                 }
             } catch (err) {
                 document.getElementById("output").textContent = "Error: " + err;
