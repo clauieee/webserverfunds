@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BME280 Sensor Readings</title>
+    <title>BME280 Sensor</title>
 </head>
 <body>
-    <h2>BME280 Sensor</h2>
+    <h2>BME280 Sensor Readings</h2>
+    
     <button onclick="readSensor()">Get Current Readings</button>
-    <p id="output"></p>
+   
+    <pre id="output">Press the button to read sensor data...</pre>
     <script>
-            function readSensor() {
-                fetch("sensor.php")
-                .then(response => response.json())
+        function readSensor() {
+            fetch("sensor.php")
+                .then(response => response.text())  
                 .then(data => {
-                    document.getElementById("output").innerHTML =
-                        "Temperature: " + data.temperature + " °C<br>" +
-                        "Pressure: " + data.pressure + " hPa<br>" +
-                        "Altitude: " + data.altitude + " m";
+                    document.getElementById("output").textContent = data;
                 })
-                .catch(err => {
-                    document.getElementById("output").innerText = "Error: " + err;
+                .catch(error => {
+                    document.getElementById("output").textContent = "Error: " + error;
                 });
-            }
+        }
     </script>
 </body>
 </html>
