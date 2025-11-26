@@ -1,14 +1,30 @@
 <!DOCTYPE html>
-    <html>
-        <head>
+<html>
+    <head>
         <title>LED Control</title>
-        </head>
-        <body>
-            <h1>Toggle LED</h1>
-                <form action="/lab11/led.php" method="POST">
-                    <input type="radio" name="ledstate" value="on"> Turn LED ON<br>
-                    <input type="radio" name="ledstate" value="off"> Turn LED OFF<br><br>
-                    <button type="submit">Submit</button>
-                </form>
-        </body>
-    </html>
+    </head>
+    <body>
+        <h2>LED Control Using Fetch</h2>
+        <button onclick="setLED('on')">Turn LED ON</button>
+        <button onclick="setLED('off')">Turn LED OFF</button>
+        <p id="result"></p>
+        <script>
+                function setLED(state) {
+                    fetch("led.php", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body: "ledstate=" + state
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById("result").innerText = data.message;
+                    })
+                    .catch(err => {
+                        document.getElementById("result").innerText = "Error: " + err;
+                    });
+                }
+        </script>
+    </body>
+</html>

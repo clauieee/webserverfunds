@@ -6,26 +6,20 @@
     <body>
         <h2>LED Control Results</h2>
             <?php
-                    // GPIO pin to control
-                    $pin = 24;
-                    // Sanitize POST input
-                    $state = htmlspecialchars($_POST['ledstate']);
-                    // Export pin if needed
-                    if (!file_exists("/sys/class/gpio/gpio$pin")) {
-                        file_put_contents("/sys/class/gpio/export", $pin);
-                    }
-                    // Set pin direction
-                    file_put_contents("/sys/class/gpio/gpio$pin/direction", "out");
-                    // Write desired state
-                    if ($state === "on") {
-                        file_put_contents("/sys/class/gpio/gpio$pin/value", "1");
-                        echo "The LED has been turned <strong>ON</strong>.<br>";
-                    } else {
-                        file_put_contents("/sys/class/gpio/gpio$pin/value", "0");
-                        echo "The LED has been turned <strong>OFF</strong>.<br>";
-                    }
-                ?>
+                $pin = 24;
+                $state = htmlspecialchars($_POST['ledstate'] ?? 'off');
+                // Set pin as output (only needs to run once, but harmless to run each time)
+                system("gpio -g mode $pin out");
+                // Write value using gpio command
+                if ($state === "on") {
+                system("gpio -g write $pin 1");
+                $msg = "LED has been turned ON";
+                } else {
+                system("gpio -g write $pin 0");
+                $msg = "LED has been turned OFF";
+                }
+                echo json_encode(["message" => $msg]);
+            ?>
         <br>
-        
     </body>
 </html>
