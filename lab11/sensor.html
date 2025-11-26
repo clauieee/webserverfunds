@@ -9,9 +9,9 @@
     <script>
         async function updateSensor() {
             try {
-                // Fetch sensor.php asynchronously
                 const response = await fetch("sensor.php");
-                const data = await response.json();
+                const raw = await response.json();
+                const data = JSON.parse(raw);
                 if (data.temperature === "N/A") {
                     document.getElementById("output").textContent = "Error reading sensor!";
                 } else {
