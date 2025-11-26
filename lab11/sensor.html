@@ -5,19 +5,19 @@
 </head>
 <body>
     <h2>BME280 Sensor Readings</h2>
-    
-    <button onclick="readSensor()">Get Current Readings</button>
-   
+    <button onclick="readSensor()">Get Readings</button>
     <pre id="output">Press the button to read sensor data...</pre>
     <script>
         function readSensor() {
-            fetch("sensor.php")
-                .then(response => response.json())  
-                .then(data => {
-                    document.getElementById("output").textContent = data;
+            fetch("sensor.php") 
+                .then(response => response.text()) 
+                .then(text => {
+                    
+                    const data = { readings: text.trim() };
+                    document.getElementById("output").textContent = data.readings;
                 })
-                .catch(error => {
-                    document.getElementById("output").textContent = "Error: " + error;
+                .catch(err => {
+                    document.getElementById("output").textContent = "Error: " + err;
                 });
         }
     </script>
