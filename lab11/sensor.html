@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BME280 Sensor</title>
+    <title>BME280 Sensor Readings</title>
 </head>
 <body>
     <h2>BME280 Sensor Readings</h2>
-    <button onclick="readSensor()">Get Readings</button>
-    <pre id="output">Press the button to read sensor data...</pre>
+    <pre id="output">Loading sensor data...</pre>
     <script>
-        function readSensor() {
-            fetch("sensor.php") 
-                .then(response => response.text()) 
-                .then(text => {
-                    
-                    const data = { readings: text.trim() };
-                    document.getElementById("output").textContent = data.readings;
+        function updateSensor() {
+            fetch("sensor.php")
+                .then(res => res.json())
+                .then(data => {
+                    if (data.error) {
+                        document.getElementById("output").textContent = "Error: " + data.error;
+                    } else {
+                        document.getElementById("output").innerHTML =
+                            "Temperature: " + data.temperature + " °C<br>" +
+                            "Pressure: " + data.pressure + " hPa<br>" +
+                            "Altitude: " + data.altitude + " m";
+                    }
                 })
                 .catch(err => {
                     document.getElementById("output").textContent = "Error: " + err;
                 });
         }
+        // Initial fetch
+        updateSensor();
+        // Refresh every second (1000ms)
+        setInterval(updateSensor, 1000);
     </script>
 </body>
 </html>
