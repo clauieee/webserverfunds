@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BME280 Sensor Readings</title>
+</head>
+<body>
+    <h2>BME280 Sensor</h2>
+    <button onclick="readSensor()">Get Current Readings</button>
+    <p id="output"></p>
+    <script>
+            function readSensor() {
+                fetch("sensor.php")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("output").innerHTML =
+                        "Temperature: " + data.temperature + " °C<br>" +
+                        "Pressure: " + data.pressure + " hPa<br>" +
+                        "Altitude: " + data.altitude + " m";
+                })
+                .catch(err => {
+                    document.getElementById("output").innerText = "Error: " + err;
+                });
+            }
+    </script>
+</body>
+</html>
