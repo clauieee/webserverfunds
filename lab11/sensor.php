@@ -1,21 +1,13 @@
 <?php
     header("Content-Type: application/json");
-    $binary = "/bme280";
-    $output = shell_exec("$binary . 2>&1");
-    $temperature = $pressure = $altitude = "N/A";
-    if (preg_match("/Temp:\s*([0-9\.\-]+)/i", $output, $match)) {
-    $temperature = $match[1];
-    }
-    if (preg_match("/Pressure:\s*([0-9\.\-]+)/i", $output, $match)) {
-    $pressure = $match[1];
-    }
-    if (preg_match("/Altitude:\s*([0-9\.\-]+)/i", $output, $match)) {
-    $altitude = $match[1];
-    }
+    // Run the BME280 binary
+    $output = trim(shell_exec("/home/pi/bme/bme280"));
+    // Split the output by spaces
+    $parts = explode(" ", $output);
     // Return JSON
     echo json_encode([
-    "temperature" => $temperature,
-    "pressure"    => $pressure,
-    "altitude"    => $altitude
+    "temperature" => $parts[0] ?? "N/A",
+    "pressure"    => $parts[1] ?? "N/A",
+    "altitude"    => $parts[2] ?? "N/A"
     ]);
 ?>
