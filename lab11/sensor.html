@@ -15,14 +15,11 @@
                         document.getElementById("output").textContent = "Error: " + data.error;
                     } else {
                         document.getElementById("output").innerHTML =
-                            "Temperature: " + data.temperature + " °C<br>" +
-                            "Pressure: " + data.pressure + " hPa<br>" +
-                            "Altitude: " + data.altitude + " m";
+                            "Temperature: " + data.temperature 
+                            "Pressure: " + data.pressure 
+                            "Altitude: " + data.altitude 
                     }
                 })
-                .catch(err => {
-                    document.getElementById("output").textContent = "Error: " + err;
-                });
         }
         // Initial fetch
         updateSensor();
