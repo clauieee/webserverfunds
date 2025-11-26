@@ -4,26 +4,29 @@
     <title>BME280 Sensor Readings</title>
 </head>
 <body>
-    <h2>BME280 Sensor Readings</h2>
+    <h2>BME280 Sensor Readings (Auto-refresh)</h2>
     <pre id="output">Loading sensor data...</pre>
     <script>
-        function updateSensor() {
-            fetch("sensor.php")
-                .then(res => res.json())
-                .then(data => {
-                    if (data.error) {
-                        document.getElementById("output").textContent = "Error: " + data.error;
-                    } else {
-                        document.getElementById("output").innerHTML =
-                            "Temperature: " + data.temperature + " °C<br>" +
-                            "Pressure: " + data.pressure + " hPa<br>" +
-                            "Altitude: " + data.altitude + " m";
-                    }
-                })
+        async function updateSensor() {
+            try {
+                // Fetch sensor.php asynchronously
+                const response = await fetch("sensor.php");
+                const data = await response.json();
+                if (data.temperature === "N/A") {
+                    document.getElementById("output").textContent = "Error reading sensor!";
+                } else {
+                    document.getElementById("output").innerHTML =
+                        "Temperature: " + data.temperature + " °C\n" +
+                        "Pressure: " + data.pressure + " hPa\n" +
+                        "Altitude: " + data.altitude + " m";
+                }
+            } catch (err) {
+                document.getElementById("output").textContent = "Error: " + err;
+            }
         }
         // Initial fetch
         updateSensor();
-        // Refresh every second (1000ms)
+        // Auto-refresh every 1 second
         setInterval(updateSensor, 1000);
     </script>
 </body>
