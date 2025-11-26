@@ -6,9 +6,8 @@
     <body>
         <h2>LED Control Results</h2>
             <?php
-                header("Content-Type: application/json");
                 // Full path to your bme280 binary
-                $binary = "/home/clauie/raspberry-pi-bme280/bme280";
+                $binary = "raspberry-pi-bme280/bme280";
                 // Make sure the binary exists and is executable
                 if (!file_exists($binary)) {
                 echo json_encode(["error" => "Binary not found at $binary"]);
