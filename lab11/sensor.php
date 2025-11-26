@@ -1,8 +1,7 @@
 <?php
-    header("Content-Type: application/json");
-    
-    $output = trim(shell_exec("/bme280 2>&1"));
-    
+    // Run the BME280 binary
+    $output = shell_exec("./bme280");
+    // Split the output by spaces
     $parts = explode(" ", $output);
     
     $temperature = $parts[0] ?? "N/A";
