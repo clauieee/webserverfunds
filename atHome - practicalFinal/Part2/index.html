@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <title>Help | Clauie's Final Week</title>
+</html>
+<body>
+    <form action="search.php" method="POST">
+      <input type="text" id="query" name="query" onkeyup="xkey()">
+      <input type="submit" value="Search">
+    </form>
+
+    <script>
+      function xkey() {
+        var xhttp = new XMLHttpRequest();
+        var text = document.getElementById("query").value;
+
+        xhttp.open("POST", "log.php", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("query=" + text);
+      }
+    </script>
+</body>
